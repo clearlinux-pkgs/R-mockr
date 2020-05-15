@@ -4,7 +4,7 @@
 #
 Name     : R-mockr
 Version  : 0.1
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/mockr_0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mockr_0.1.tar.gz
 Summary  : Mocking in R
@@ -13,7 +13,6 @@ License  : GPL-3.0
 Requires: R-lazyeval
 BuildRequires : R-lazyeval
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 mockr [![Travis-CI Build Status](https://travis-ci.org/krlmlr/mockr.svg?branch=master)](https://travis-ci.org/krlmlr/mockr) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/mockr/master.svg)](https://codecov.io/github/krlmlr/mockr?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mockr)](https://cran.r-project.org/package=mockr)
@@ -21,21 +20,22 @@ mockr [![Travis-CI Build Status](https://travis-ci.org/krlmlr/mockr.svg?branch=m
 
 %prep
 %setup -q -c -n mockr
+cd %{_builddir}/mockr
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571868234
+export SOURCE_DATE_EPOCH=1589579870
 
 %install
-export SOURCE_DATE_EPOCH=1571868234
+export SOURCE_DATE_EPOCH=1589579870
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
