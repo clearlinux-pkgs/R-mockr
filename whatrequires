@@ -1,4 +1,3 @@
 # This file contains recursive sources that require this package
-R-gargle
 R-googledrive
-R-rprojroot
+R-tidyverse
